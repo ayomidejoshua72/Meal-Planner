@@ -12,8 +12,29 @@ class HomePage extends StatelessWidget {
       appBar: appBar(),
       backgroundColor: Colors.white,
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _searchBar(),
+          SizedBox(
+            height: 30,
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Category",
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              ListView.builder(
+                itemBuilder: (context, index) {
+                  return Container();
+                },
+              ),
+            ],
+          )
         ],
       ),
     );
@@ -21,61 +42,61 @@ class HomePage extends StatelessWidget {
 
   Container _searchBar() {
     return Container(
-          margin: EdgeInsets.only(
-            top: 40,
-            right: 20,
-            left: 20,
+      margin: EdgeInsets.only(
+        top: 40,
+        right: 20,
+        left: 20,
+      ),
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Color.fromARGB(62, 153, 150, 150),
+            blurRadius: 40,
+            spreadRadius: 0.0,
           ),
-          decoration: BoxDecoration(
-            boxShadow: [
-              BoxShadow(
-                color: Color.fromARGB(62, 153, 150, 150),
-                blurRadius: 40,
-                spreadRadius: 0.0,
-              ),
-            ],
+        ],
+      ),
+      child: TextField(
+        decoration: InputDecoration(
+          filled: true,
+          fillColor: Colors.white,
+          contentPadding: EdgeInsets.all(15),
+          border: OutlineInputBorder(
+            borderSide: BorderSide.none,
+            borderRadius: BorderRadius.circular(10),
           ),
-          child: TextField(
-            decoration: InputDecoration(
-              filled: true,
-              fillColor: Colors.white,
-              contentPadding: EdgeInsets.all(15),
-              border: OutlineInputBorder(
-                borderSide: BorderSide.none,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              prefixIcon: Padding(
-                padding: const EdgeInsets.all(12),
-                child: SvgPicture.asset("assets/icons/Search.svg"),
-              ),
-              hintText: "Search",
-              hintStyle: TextStyle(
-                color: const Color.fromARGB(129, 158, 158, 158),
-                fontSize: 20,
-              ),
-              suffixIcon: SizedBox(
-                width: 150,
-                child: IntrinsicHeight(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      VerticalDivider(
-                        thickness: 0.2,
-                        indent: 10,
-                        endIndent: 10,
-                        color: Color.fromARGB(255, 32, 32, 32),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(12),
-                        child: SvgPicture.asset("assets/icons/Filter.svg"),
-                      ),
-                    ],
+          prefixIcon: Padding(
+            padding: const EdgeInsets.all(12),
+            child: SvgPicture.asset("assets/icons/Search.svg"),
+          ),
+          hintText: "Search",
+          hintStyle: TextStyle(
+            color: const Color.fromARGB(129, 158, 158, 158),
+            fontSize: 20,
+          ),
+          suffixIcon: SizedBox(
+            width: 150,
+            child: IntrinsicHeight(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  VerticalDivider(
+                    thickness: 0.2,
+                    indent: 10,
+                    endIndent: 10,
+                    color: Color.fromARGB(255, 32, 32, 32),
                   ),
-                ),
+                  Padding(
+                    padding: const EdgeInsets.all(12),
+                    child: SvgPicture.asset("assets/icons/Filter.svg"),
+                  ),
+                ],
               ),
             ),
           ),
-        );
+        ),
+      ),
+    );
   }
 
   AppBar appBar() {
