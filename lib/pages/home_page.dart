@@ -13,10 +13,69 @@ class HomePage extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Column(
         children: [
-          
+          _searchBar(),
         ],
       ),
     );
+  }
+
+  Container _searchBar() {
+    return Container(
+          margin: EdgeInsets.only(
+            top: 40,
+            right: 20,
+            left: 20,
+          ),
+          decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: Color.fromARGB(62, 153, 150, 150),
+                blurRadius: 40,
+                spreadRadius: 0.0,
+              ),
+            ],
+          ),
+          child: TextField(
+            decoration: InputDecoration(
+              filled: true,
+              fillColor: Colors.white,
+              contentPadding: EdgeInsets.all(15),
+              border: OutlineInputBorder(
+                borderSide: BorderSide.none,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              prefixIcon: Padding(
+                padding: const EdgeInsets.all(12),
+                child: SvgPicture.asset("assets/icons/Search.svg"),
+              ),
+              hintText: "Search",
+              hintStyle: TextStyle(
+                color: const Color.fromARGB(129, 158, 158, 158),
+                fontSize: 20,
+              ),
+              suffixIcon: SizedBox(
+                width: 150,
+                child: IntrinsicHeight(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      VerticalDivider(
+                        thickness: 0.2,
+                        indent: 10,
+                        endIndent: 10,
+                        color: Color.fromARGB(255, 32, 32, 32),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(12),
+                        child: SvgPicture.asset("assets/icons/Filter.svg"),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+        );
   }
 
   AppBar appBar() {
@@ -56,8 +115,8 @@ class HomePage extends StatelessWidget {
 
   BoxDecoration appBarButtonDec() {
     return BoxDecoration(
-            color: const Color.fromARGB(255, 224, 224, 224),
-            borderRadius: BorderRadius.circular(10),
-          );
+      color: const Color.fromARGB(255, 224, 224, 224),
+      borderRadius: BorderRadius.circular(10),
+    );
   }
 }
