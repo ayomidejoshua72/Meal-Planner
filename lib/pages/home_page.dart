@@ -24,6 +24,8 @@ class HomePage extends StatelessWidget {
           _categories(),
           SizedBox(height: 30),
           _diet(),
+          SizedBox(height: 30),
+          
         ],
       ),
     );
@@ -45,7 +47,7 @@ class HomePage extends StatelessWidget {
             ),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 20),
-              height: 300,
+              height: 320,
               child: ListView.separated(
                 scrollDirection: Axis.horizontal,
                 itemCount: diet.length,
