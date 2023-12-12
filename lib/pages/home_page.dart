@@ -1,4 +1,3 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -21,11 +20,11 @@ class HomePage extends StatelessWidget {
       body: ListView(
         children: [
           _searchBar(),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           _categories(),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           _diet(),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           _popular(),
         ],
       ),
@@ -36,8 +35,8 @@ class HomePage extends StatelessWidget {
     return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.all(20),
+            const Padding(
+              padding: EdgeInsets.all(20),
               child: Text(
                 "Popular",
                 style: TextStyle(
@@ -46,15 +45,15 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             ListView.separated(
-              separatorBuilder: (context, index) => SizedBox(height: 25),
+              separatorBuilder: (context, index) => const SizedBox(height: 25),
               itemCount: popular.length,
               shrinkWrap: true,
               itemBuilder: (context, index) {
                 return Container(
                   height: 120,
-                  margin: EdgeInsets.symmetric(horizontal: 20),
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
                   decoration: BoxDecoration(
                     color: popular[index].boxIsSelected
                         ? Colors.white
@@ -63,7 +62,7 @@ class HomePage extends StatelessWidget {
                     boxShadow: [
                       BoxShadow(
                         color: popular[index].boxIsSelected
-                            ? Color.fromARGB(62, 153, 150, 150)
+                            ? const Color.fromARGB(62, 153, 150, 150)
                             : Colors.transparent,
                         blurRadius: 40,
                         spreadRadius: 0.0,
@@ -84,14 +83,14 @@ class HomePage extends StatelessWidget {
                         children: [
                           Text(
                             popular[index].name,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
                           Text(
                             "${popular[index].level} | ${popular[index].duration} | ${popular[index].calorie}",
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 16,
                               color: Color.fromARGB(255, 39, 36, 36),
                               fontWeight: FontWeight.w400,
@@ -117,8 +116,8 @@ class HomePage extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsets.all(20),
+        const Padding(
+          padding: EdgeInsets.all(20),
           child: Text(
             "Recommendation \nfor Diet",
             style: TextStyle(
@@ -128,12 +127,12 @@ class HomePage extends StatelessWidget {
           ),
         ),
         Container(
-          margin: EdgeInsets.symmetric(horizontal: 20),
+          margin: const EdgeInsets.symmetric(horizontal: 20),
           height: 320,
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
             itemCount: diet.length,
-            separatorBuilder: (context, index) => SizedBox(width: 15),
+            separatorBuilder: (context, index) => const SizedBox(width: 15),
             itemBuilder: (context, index) {
               return Container(
                 width: 270,
@@ -149,7 +148,7 @@ class HomePage extends StatelessWidget {
                       children: [
                         Text(
                           diet[index].name,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.w600,
                           ),
@@ -159,7 +158,7 @@ class HomePage extends StatelessWidget {
                           padding: const EdgeInsets.only(top: 8),
                           child: Text(
                             "${diet[index].level} | ${diet[index].duration} | ${diet[index].calorie}",
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 18,
                               color: Color.fromARGB(255, 32, 31, 31),
                               fontWeight: FontWeight.w400,
@@ -185,7 +184,7 @@ class HomePage extends StatelessWidget {
                             fontSize: 22,
                             color: diet[index].viewIsSelected
                                 ? Colors.white
-                                : Color(0xffEEA4CE),
+                                : const Color(0xffEEA4CE),
                             fontWeight: FontWeight.w600,
                           ),
                         ),
@@ -205,8 +204,8 @@ class HomePage extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsets.all(20),
+        const Padding(
+          padding: EdgeInsets.all(20),
           child: Text(
             "Category",
             style: TextStyle(
@@ -218,12 +217,12 @@ class HomePage extends StatelessWidget {
         // SizedBox(height: 15,),
         Container(
           height: 160,
-          margin: EdgeInsets.symmetric(
+          margin: const EdgeInsets.symmetric(
             horizontal: 20,
           ),
           child: ListView.separated(
             separatorBuilder: (context, index) {
-              return SizedBox(
+              return const SizedBox(
                 width: 15,
               );
             },
@@ -252,7 +251,7 @@ class HomePage extends StatelessWidget {
                     ),
                     Text(
                       categories[index].name,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.w600,
                       ),
@@ -269,12 +268,12 @@ class HomePage extends StatelessWidget {
 
   Container _searchBar() {
     return Container(
-      margin: EdgeInsets.only(
+      margin: const EdgeInsets.only(
         top: 40,
         right: 20,
         left: 20,
       ),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         boxShadow: [
           BoxShadow(
             color: Color.fromARGB(62, 153, 150, 150),
@@ -287,7 +286,7 @@ class HomePage extends StatelessWidget {
         decoration: InputDecoration(
           filled: true,
           fillColor: Colors.white,
-          contentPadding: EdgeInsets.all(15),
+          contentPadding: const EdgeInsets.all(15),
           border: OutlineInputBorder(
             borderSide: BorderSide.none,
             borderRadius: BorderRadius.circular(10),
@@ -297,8 +296,8 @@ class HomePage extends StatelessWidget {
             child: SvgPicture.asset("assets/icons/Search.svg"),
           ),
           hintText: "Search",
-          hintStyle: TextStyle(
-            color: const Color.fromARGB(129, 158, 158, 158),
+          hintStyle: const TextStyle(
+            color: Color.fromARGB(129, 158, 158, 158),
             fontSize: 20,
           ),
           suffixIcon: SizedBox(
@@ -307,7 +306,7 @@ class HomePage extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  VerticalDivider(
+                  const VerticalDivider(
                     thickness: 0.2,
                     indent: 10,
                     endIndent: 10,
@@ -329,7 +328,7 @@ class HomePage extends StatelessWidget {
   AppBar appBar() {
     return AppBar(
       leading: Container(
-        margin: EdgeInsets.all(10),
+        margin: const EdgeInsets.all(10),
         alignment: Alignment.center,
         decoration: appBarButtonDec(),
         child: SvgPicture.asset(
@@ -349,7 +348,7 @@ class HomePage extends StatelessWidget {
       centerTitle: true,
       actions: [
         Container(
-          margin: EdgeInsets.all(10),
+          margin: const EdgeInsets.all(10),
           width: 37,
           alignment: Alignment.center,
           decoration: appBarButtonDec(),
